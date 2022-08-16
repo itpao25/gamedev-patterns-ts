@@ -14,10 +14,6 @@ module.exports = {
     ],
     // add your custom rules here
     rules: {
-        'semi': [
-            'error',
-            'never'
-        ],
         'quotes': [
             'error',
             'single'
@@ -31,15 +27,15 @@ module.exports = {
             }
         ],
         '@typescript-eslint/naming-convention': [
-          'error',
-          {
-            'selector': 'interface',
-            'format': ['PascalCase'],
-            'custom': {
-              'regex': '^I[A-Z]',
-              'match': true
+            'error',
+            {
+                'selector': 'interface',
+                'format': ['PascalCase'],
+                'custom': {
+                    'regex': '^I[A-Z]',
+                    'match': true
+                }
             }
-          }
         ],
         'no-unused-vars': 'off', // note you must disable the base rule as it can report incorrect errors
         '@typescript-eslint/no-unused-vars': [
