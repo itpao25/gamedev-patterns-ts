@@ -1,7 +1,7 @@
 // src/utils/ecs/component.h.ts
+import {IUpdate} from '@/utils/update.h';
+import {Entity} from '@/utils';
 
-import { Entity } from './entity';
-
-export interface IComponent {
+export interface IComponent extends IUpdate {
     Entity: Entity | null
 }
