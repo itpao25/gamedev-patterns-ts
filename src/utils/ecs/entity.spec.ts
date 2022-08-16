@@ -12,7 +12,6 @@ class C2 implements IComponent {
     public Entity: E
 }
 
-
 class C3 implements IComponent {
     public Entity: E
 }
@@ -55,5 +54,5 @@ describe('>>> Entity', () => {
     it('should throw error if component want\'t found', () => {
         expect(entity.HasComponent(C1)).toBeFalsy()
         expect(() => entity.GetComponent(C1)).toThrow()
-    })
+    });
 })
