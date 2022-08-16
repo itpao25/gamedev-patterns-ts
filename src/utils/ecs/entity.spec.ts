@@ -12,6 +12,7 @@ class C2 implements IComponent {
     public Entity: E
 }
 
+
 class C3 implements IComponent {
     public Entity: E
 }
