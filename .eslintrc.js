@@ -14,10 +14,6 @@ module.exports = {
     ],
     // add your custom rules here
     rules: {
-        'quotes': [
-            'error',
-            'single'
-        ],
         '@typescript-eslint/explicit-function-return-type': [
             'error',
             {
