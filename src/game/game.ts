@@ -7,16 +7,45 @@ export class Game extends Entity {
     // Per fare ciò dobbiamo tenere traccia di quando Update è stato eseguito
     private _lastTimestamp = 0;
 
+    // Array che contiene tutte le entità "figlio" (tutte le entità del game)
+    public Entities: Entity[] = [];
+
+    // Creo un metodo Awake per risvegliare il componente e fare faccio partire Update()
+    public Awake(): void {
+        super.Awake();
+
+        // sveglio tutte le altre entità del gioco (entità figli)
+        for (const entity of this.Entities) {
+            entity.Awake();
+        }
+
+        // Aspetto il frame successivo per essere sicuro che tutti i componenti siano risvegliati
+        window.requestAnimationFrame(() => {
+
+            // set initial timestamp
+            this._lastTimestamp = Date.now();
+
+            // start update loop
+            this.Update();
+        });
+    }
+
+    // Game loop che aggiorna tutte le entità e i componenti del gioco
     public Update(): void {
         const deltaTime = (Date.now() - this._lastTimestamp) / 1000;
 
-        // update all components
+        // aggiorno tutti i componenti dell'entità Game
         super.Update(deltaTime);
+
+        // aggiorno tutte le altre entità del game (entità figli)
+        for (const entity of this.Entities) {
+            entity.Update(deltaTime);
+        }
 
         // update the timestamp
         this._lastTimestamp = Date.now();
 
-        // Creo il loop del gioco
+        // Creo il loop del gioco impostando il ciclo in ogni frame
         window.requestAnimationFrame(() => this.Update());
     }
 }

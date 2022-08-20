@@ -1,27 +1,37 @@
-import {Entity} from './entity'
-import {IComponent} from './component.h'
+import {Entity} from '@/utils'
+import {IComponent} from '@/utils'
 
 class E extends Entity {
 }
 
 class C1 implements IComponent {
     public Entity: E;
-    public Update(deltaTime: number): void {
-        /* */
+
+    public Update(deltaTime: number): void { /* */
     }
+
+    public Awake(): void { /*...*/
+    }
+
 }
 
 class C2 implements IComponent {
     public Entity: E;
-    public Update(deltaTime: number): void {
-        /* */
+
+    public Update(deltaTime: number): void { /* */
+    }
+
+    public Awake(): void { /*...*/
     }
 }
 
 class C3 implements IComponent {
     public Entity: E;
-    public Update(deltaTime: number): void {
-        /* */
+
+    public Update(deltaTime: number): void { /* */
+    }
+
+    public Awake(): void { /*...*/
     }
 }
 
@@ -61,29 +71,49 @@ describe('>>> Entity', () => {
     })
 
     // Componente non aggiunto nell'entità
-    it("should throw error if component wasn't found", () => {
+    it('should throw error if component wasn\'t found', () => {
         expect(entity.HasComponent(C1)).toBeFalsy()
         expect(() => entity.GetComponent(C1)).toThrow()
     });
 
-    it("should update all Components", () => {
-       const spy1 = jest.spyOn(c1, "Update");
-       const spy2 = jest.spyOn(c2, "Update");
-       const spy3 = jest.spyOn(c3, "Update");
+    it('should update all Components', () => {
+        const spy1 = jest.spyOn(c1, 'Update');
+        const spy2 = jest.spyOn(c2, 'Update');
+        const spy3 = jest.spyOn(c3, 'Update');
 
-       expect(spy1).not.toBeCalled();
-       expect(spy2).not.toBeCalled();
-       expect(spy3).not.toBeCalled();
+        expect(spy1).not.toBeCalled();
+        expect(spy2).not.toBeCalled();
+        expect(spy3).not.toBeCalled();
 
-       entity.AddComponent(c1);
-       entity.AddComponent(c2);
-       entity.AddComponent(c3);
+        entity.AddComponent(c1);
+        entity.AddComponent(c2);
+        entity.AddComponent(c3);
 
-       const deltaTime = 12;
-       entity.Update(deltaTime);
+        const deltaTime = 12;
+        entity.Update(deltaTime);
 
-       expect(spy1).toBeCalledWith(deltaTime);
-       expect(spy2).toBeCalledWith(deltaTime);
-       expect(spy3).toBeCalledWith(deltaTime);
+        expect(spy1).toBeCalledWith(deltaTime);
+        expect(spy2).toBeCalledWith(deltaTime);
+        expect(spy3).toBeCalledWith(deltaTime);
     });
-})
+
+    it('should awake all Components', () => {
+        const spy1 = jest.spyOn(c1, 'Awake');
+        const spy2 = jest.spyOn(c2, 'Awake');
+        const spy3 = jest.spyOn(c3, 'Awake');
+
+        expect(spy1).not.toBeCalled();
+        expect(spy2).not.toBeCalled();
+        expect(spy3).not.toBeCalled();
+
+        entity.AddComponent(c1);
+        entity.AddComponent(c2);
+        entity.AddComponent(c3);
+
+        entity.Awake();
+
+        expect(spy1).toBeCalled();
+        expect(spy2).toBeCalled();
+        expect(spy3).toBeCalled();
+    });
+});

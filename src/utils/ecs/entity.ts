@@ -1,12 +1,24 @@
 // src/utils/ecs/entity.ts
 import {IComponent} from '@/utils'
-import {IUpdate} from '@/utils/update.h';
+import {IUpdate, IAwake} from '@/utils';
 
 type constr<T> = { new(...args: unknown[]): T };
 
-export abstract class Entity implements IUpdate {
+export abstract class Entity implements IAwake, IUpdate {
 
     protected _components: IComponent[] = []
+
+    public Update(deltaTime: number): void {
+        for (const component of this._components) {
+            component.Update(deltaTime);
+        }
+    }
+
+    public Awake(): void {
+        for (const component of this._components) {
+            component.Awake();
+        }
+    }
 
     public get Components(): IComponent[] {
         return this._components
@@ -53,11 +65,5 @@ export abstract class Entity implements IUpdate {
             }
         }
         return false
-    }
-
-    public Update(deltaTime: number): void {
-        for (const component of this._components) {
-            component.Update(deltaTime);
-        }
     }
 }
