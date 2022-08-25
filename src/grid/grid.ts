@@ -17,20 +17,10 @@ export class Grid extends Entity {
 
         // Preparo i nodi della griglia
         this.InitNodes();
-        
+
         // Sveglio tutti i nodi della griglia
         for (const node of this._nodes) {
             node.Awake();
-        }
-    }
-
-    // Quando la griglia si aggiorna, devo aggiornare anche tutti i nodi al suo interno
-    public Update(deltaTime: number): void {
-        super.Update(deltaTime);
-
-        // Aggiorno tutti i nodi della griglia
-        for (const node of this._nodes) {
-            node.Update(deltaTime);
         }
     }
 
@@ -49,6 +39,16 @@ export class Grid extends Entity {
                 const node = new Node(start, end, index);
                 this._nodes.push(node);
             }
+        }
+    }
+    
+    // Quando la griglia si aggiorna, devo aggiornare anche tutti i nodi al suo interno
+    public Update(deltaTime: number): void {
+        super.Update(deltaTime);
+
+        // Aggiorno tutti i nodi della griglia
+        for (const node of this._nodes) {
+            node.Update(deltaTime);
         }
     }
 }

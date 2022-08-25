@@ -1,29 +1,31 @@
 import {IComponent} from '@/utils';
 import {Node} from '@/node';
 import {Settings} from '@/settings';
+import {CanvasLayer} from '@/canvas-layer';
 
 export class NodeDrawComponent implements IComponent {
     public Entity: Node;
-
+    
     public Awake(): void {
-
-        const canvas = document.createElement('canvas');
-        const canvasSize = (Settings.grid.nodeSize + Settings.grid.nodeOffset) * Settings.grid.dimension + Settings.grid.nodeOffset;
-        canvas.setAttribute('width', canvasSize.toString());
-        canvas.setAttribute('height', canvasSize.toString());
-        document.body.appendChild(canvas);
-        
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-            ctx.beginPath();
-            ctx.fillStyle = Settings.grid.color;
-            ctx.rect(this.Entity.Start.x, this.Entity.Start.y, this.Entity.Size.x, this.Entity.Size.y);
-            ctx.fill();
-        }
+        this.Clear();
     }
 
     public Update(deltaTime: number): void {
-        // todo
+        // A ogni update prima di renderizzare il nodo nel Canvas faccio il clear
+        this.Clear();
+        // renderizzo il nodo
+        this.Draw();
     }
 
+    public Draw(): void {
+        CanvasLayer.Background.FillRect(
+            this.Entity.Start,
+            this.Entity.Size,
+            Settings.grid.color
+        );
+    }
+
+    private Clear(): void {
+        CanvasLayer.Background.ClearRect(this.Entity.Start, this.Entity.Size);
+    }
 }

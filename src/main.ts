@@ -1,4 +1,4 @@
 // src/main.ts
-import {Game} from '@/game/game';
+import { Game } from '@/game/game';
 
 new Game().Awake();
