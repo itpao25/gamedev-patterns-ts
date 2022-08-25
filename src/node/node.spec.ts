@@ -1,12 +1,12 @@
-import {Node, NodeDrawComponent} from '@/node';
-import {Vector2D} from '@/utils';
+import { Node, NodeDrawComponent } from '@/node';
+import { Vector2D } from '@/utils';
 
 describe('>>> Node', () => {
 
     const start = new Vector2D(1, 2);
     const end = new Vector2D(5, 6);
     const index = new Vector2D(1, 1);
-    
+
     let node: Node;
 
     beforeEach(() => {

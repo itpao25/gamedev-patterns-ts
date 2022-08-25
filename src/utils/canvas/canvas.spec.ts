@@ -1,5 +1,5 @@
-import {Vector2D} from '@/utils';
-import {Canvas} from '@/utils';
+import { Vector2D } from '@/utils';
+import { Canvas } from '@/utils';
 
 describe('>>> Canvas', () => {
     const size = new Vector2D(100, 100);
@@ -42,7 +42,7 @@ describe('>>> Canvas', () => {
             expect(rectSpy).toBeCalledWith(start.x, start.y, size.x, size.y);
             expect(fillSpy).toBeCalled();
             expect(canvas.Context.fillStyle).toBe(color);
-            
+
         });
 
         it('should clear the rect', function () {

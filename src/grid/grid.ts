@@ -1,7 +1,7 @@
 // src/grid/grid.ts
-import {Entity, Vector2D} from '@/utils';
-import {Node} from '@/node';
-import {Settings} from '@/settings';
+import { Entity, Vector2D } from '@/utils';
+import { Node } from '@/node';
+import { Settings } from '@/settings';
 
 export class Grid extends Entity {
 
@@ -41,7 +41,7 @@ export class Grid extends Entity {
             }
         }
     }
-    
+
     // Quando la griglia si aggiorna, devo aggiornare anche tutti i nodi al suo interno
     public Update(deltaTime: number): void {
         super.Update(deltaTime);

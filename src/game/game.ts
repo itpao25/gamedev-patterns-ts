@@ -1,5 +1,5 @@
-import {Entity} from '@/utils';
-import {Grid} from '@/grid';
+import { Entity } from '@/utils';
+import { Grid } from '@/grid';
 
 export class Game extends Entity {
 

@@ -1,5 +1,5 @@
-import {CanvasLayer} from './canvas-layer';
-import {Canvas} from '@/utils';
+import { CanvasLayer } from './canvas-layer';
+import { Canvas } from '@/utils';
 
 jest.mock('@/utils');
 

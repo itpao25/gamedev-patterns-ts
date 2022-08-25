@@ -1,6 +1,6 @@
-import {IComponent} from '@/utils';
-import {Game} from '@/game/game';
-import {Grid} from '@/grid';
+import { IComponent } from '@/utils';
+import { Game } from '@/game/game';
+import { Grid } from '@/grid';
 
 class C1 implements IComponent {
     public Entity: Game;

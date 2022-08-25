@@ -1,5 +1,5 @@
-import {Entity} from '@/utils'
-import {IComponent} from '@/utils'
+import { Entity } from '@/utils'
+import { IComponent } from '@/utils'
 
 class E extends Entity {
 }

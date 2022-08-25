@@ -1,5 +1,5 @@
 // src/utils/canvas/canvas.ts
-import {IAwake, Vector2D} from '@/utils';
+import { IAwake, Vector2D } from '@/utils';
 
 export class Canvas implements IAwake {
     private _elm: HTMLCanvasElement;

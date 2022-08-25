@@ -1,6 +1,6 @@
-import {Grid} from '@/grid/grid';
-import {Node} from '@/node';
-import {Settings} from '@/settings';
+import { Grid } from '@/grid/grid';
+import { Node } from '@/node';
+import { Settings } from '@/settings';
 
 describe('>>> Grid', () => {
     const nodeCount = Settings.grid.dimension * Settings.grid.dimension;
@@ -16,7 +16,7 @@ describe('>>> Grid', () => {
 
         expect(spyNodeAwake).not.toBeCalled();
         expect(spyNodeUpdate).not.toBeCalled();
-        
+
         grid.Awake();
         expect(spyNodeAwake).toBeCalledTimes(nodeCount);
 

@@ -1,11 +1,11 @@
-import {IComponent} from '@/utils';
-import {Node} from '@/node';
-import {Settings} from '@/settings';
-import {CanvasLayer} from '@/canvas-layer';
+import { IComponent } from '@/utils';
+import { Node } from '@/node';
+import { Settings } from '@/settings';
+import { CanvasLayer } from '@/canvas-layer';
 
 export class NodeDrawComponent implements IComponent {
     public Entity: Node;
-    
+
     public Awake(): void {
         this.Clear();
     }

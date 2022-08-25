@@ -1,6 +1,6 @@
 // src/utils/ecs/entity.ts
-import {IComponent} from '@/utils'
-import {IUpdate, IAwake} from '@/utils';
+import { IComponent } from '@/utils'
+import { IUpdate, IAwake } from '@/utils';
 
 type constr<T> = { new(...args: unknown[]): T };
 

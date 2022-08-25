@@ -1,6 +1,6 @@
-import {NodeDrawComponent} from './draw';
-import {CanvasLayer} from '@/canvas-layer';
-import {mockNodeFactory} from '@/node';
+import { NodeDrawComponent } from './draw';
+import { CanvasLayer } from '@/canvas-layer';
+import { mockNodeFactory } from '@/node';
 
 describe('>>> Node Draw Component', () => {
 
@@ -21,7 +21,7 @@ describe('>>> Node Draw Component', () => {
 
     it('should cleanup and draw rect every frame', function () {
         const spyClearRect = jest.spyOn(CanvasLayer.Background, 'ClearRect');
-        const spyFillRect = jest.spyOn(CanvasLayer.Background, "FillRect");
+        const spyFillRect = jest.spyOn(CanvasLayer.Background, 'FillRect');
 
         expect(spyClearRect).not.toBeCalled();
         expect(spyFillRect).not.toBeCalled();

@@ -1,5 +1,5 @@
-import {Entity, Vector2D} from '@/utils';
-import {NodeDrawComponent} from '@/node/components';
+import { Entity, Vector2D } from '@/utils';
+import { NodeDrawComponent } from '@/node/components';
 
 export class Node extends Entity {
 
